@@ -8,8 +8,10 @@ We have an existing dictionary that maps US states to their capitals.
 7. Now we want to add the reverse look up, given the name of a capital what state
 is it in?
 Implement the function def get_state(capital): below so it returns the state.
-GOTCHAS: What happens if two states have the same capital name, how do you
-handle that?
+GOTCHAS: What happens if two states have the same capital name ?
+==> YG added ==> Will return the last one from the dictionary,
+how do you handle that?
+==> YG added ==> code dev if several keys count... ==> OK DONE ;-)
 git check
 """
 
@@ -30,7 +32,8 @@ STATES_CAPITALS = {
     'Hawaii' : 'Honolulu',
     'Idaho' : 'Boise',
     'Illinois' : 'Springfield',
-    'Indiana' : 'Indianapolis',
+    # 'Indiana' : 'Indianapolis',
+    'Indiana' : 'Boise',
     'Iowa' : 'Des Moines',
     'Kansas' : 'Topeka',
     'Kentucky' : 'Frankfort',
@@ -95,6 +98,11 @@ lambda_expr = {v: k for k, v in STATES_CAPITALS.items()}
 def get_state(capital):
     return lambda_expr[capital]
 
+def get_state_yg(capital,value):
+    for k, v in STATES_CAPITALS.items():
+        if v == value:
+            yield k
+    # return lambda_expr[capital]
 
 
 
@@ -108,6 +116,14 @@ print('\n\n\n')
 states_capitals_string()
 print('\n\n\n')
 print('The state of Madison Capital city = ' + get_state('Madison'))
+# ==> YG Added:
+print('\n\n\n')
+capi = input("What is your Capital city? I will guess your state...")
+keys = list(get_state_yg(STATES_CAPITALS, capi))
+if len(keys) > 1:
+    print("you have more that one answer...\nThe possibilities are:\n\t\t\t\t\t", keys)
+else:
+    print(f'The state of {capi} Capital city = ' + get_state(capi))
 
 def test_state_to_capital():
     assert 'Cheyenne' == STATES_CAPITALS['Wyoming']
