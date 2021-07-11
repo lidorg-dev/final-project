@@ -68,9 +68,8 @@ STATES_CAPITALS = {
     'Wyoming' : 'Cheyenne',
 }
 
-
 def capital_of_Idaho():
-    # Your code here
+    Print ()
     pass
 
 def all_states():
@@ -78,7 +77,7 @@ def all_states():
     pass
 
 def all_capitals():
-    # Your code here
+    print(STATES_CAPITALS)
     pass
 
 def states_capitals_string():
