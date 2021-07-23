@@ -70,6 +70,7 @@ STATES_CAPITALS = {
     'West Virginia' : 'Charleston',
     'Wisconsin' : 'Madison',
     'Wyoming' : 'Cheyenne',
+    # 'Ababaaa' : 'YoavGUEZ'
 }
 
 
@@ -78,8 +79,23 @@ def capital_of_Idaho():
 
 def all_states():
     print('All States:')
+    state_check_ordered = []
     for key in STATES_CAPITALS.keys():
         print(key)
+
+def all_states_check():
+    print('All States: Checking if sorted alphabetically:...\n')
+    state_check_ordered = []
+    for key in STATES_CAPITALS.keys():
+        state_check_ordered.append(key)
+        # print(list(state_check_ordered) == sorted(state_check_ordered))
+    if list(state_check_ordered) == sorted(state_check_ordered):
+        print("OK GOOD !!! STATES are sorted alphabetically")
+    else:
+        print("ATTENTION !!! STATES are not sorted alphabetically!!!")
+    # print(state_check_ordered)
+    return
+
 
 def all_capitals():
     print('All Capitals:')
@@ -105,7 +121,6 @@ def get_state_yg(capital,value):
     # return lambda_expr[capital]
 
 
-
 # Here, I test my code.
 capital_of_Idaho()
 print('\n\n\n')
@@ -114,6 +129,8 @@ print('\n\n\n')
 all_capitals()
 print('\n\n\n')
 states_capitals_string()
+print('\n')
+all_states_check()
 print('\n\n\n')
 print('The state of Madison Capital city = ' + get_state('Madison'))
 # ==> YG Added:
