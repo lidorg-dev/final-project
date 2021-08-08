@@ -70,24 +70,30 @@ STATES_CAPITALS = {
 
 
 def capital_of_Idaho():
-    # Your code here
+    print(STATES_CAPITALS["Idaho"])
     pass
 
 def all_states():
-    # Your code here
+    print(STATES_CAPITALS.keys())
     pass
 
 def all_capitals():
-    # Your code here
+    print(STATES_CAPITALS.values())
     pass
 
 def states_capitals_string():
-    # Your code here
+    print(" -> ".join(sorted(STATES_CAPITALS)))
     pass
 
 
 
 def get_state(capital):
+    capitals_states = {}
+
+        for state, capital in STATES_CAPITALS.items():
+            capitals_states.setdefault(capital, [])
+            capitals_states[capital].append(state)
+        print(capitals_states)
     pass
 
 
