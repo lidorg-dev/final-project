@@ -65,7 +65,8 @@ STATES_CAPITALS = {
     'Washington' : 'Olympia',
     'West Virginia' : 'Charleston',
     'Wisconsin' : 'Madison',
-    'Wyoming' : 'Cheyenne',
+    'Wyoming' : 'Cheyenne'
+    'Test' : 'Montgomery',
 }
 
 
