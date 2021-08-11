@@ -11,15 +11,28 @@ Example: ['mont', 'y py', 'thon', 's fl', 'ying', ' cir', 'cus']
 """
 import pytest
 
+a_string = 'monty pythons flying circus'
+
 def no_duplicates(a_string):
+
+    return "".join(sorted(set(a_string)))
     pass
 
 
 def reversed_words(a_string):
+
+    s = str.split(a_string)
+    return s[::-1]
     pass
 
 
 def four_char_strings(a_string):
+
+    slice = []
+
+    for index in range(0, len(a_string), 4):
+    	slice = a_string[index:index+4]
+     	print(slice , end=' ')
     pass
 
 
