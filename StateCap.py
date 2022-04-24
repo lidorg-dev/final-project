@@ -11,9 +11,8 @@ GOTCHAS: What happens if two states have the same capital name, how do you
 handle that?
 
 """
-import sys
 
-import pytest
+import sys
 
 STATES_CAPITALS = {
     'Alabama' : 'Montgomery',
@@ -68,51 +67,34 @@ STATES_CAPITALS = {
     'Wyoming' : 'Cheyenne',
 }
 
-
-def capital_of_Idaho():
-    # Your code here
-    pass
+def capital_Idaho():
+    print(STATES_CAPITALS['Idaho'])
+capital_Idaho()
+pass
 
 def all_states():
-    # Your code here
-    pass
+    print(STATES_CAPITALS.keys())
+all_states()
+pass
 
 def all_capitals():
-    # Your code here
-    pass
+    print(STATES_CAPITALS.values())
+all_capitals()
+pass
 
 def states_capitals_string():
-    # Your code here
-    pass
+    lst = STATES_CAPITALS.keys()
+    sort = sorted(lst)
+    print(sort)
+states_capitals_string()
+pass
 
+def get_state():
+    stat = input('Provide Capital:')
+    for st, cap in STATES_CAPITALS.items():
+        if cap.lower() == stat:
+            results = st+ " " +cap
+            print(results)
+get_state()
+pass
 
-
-def get_state(capital):
-    pass
-
-
-
-def test_state_to_capital():
-    assert 'Cheyenne' == STATES_CAPITALS['Wyoming']
-
-
-def test_state_to_capital_unknown():
-    with pytest.raises(KeyError):
-        STATES_CAPITALS['']
-
-
-def test_capital_to_state():
-    assert 'Wyoming' == get_state('Cheyenne')
-
-
-def test_capital_to_state_unknown():
-    with pytest.raises(KeyError):
-        get_state('')
-
-
-def main():
-    return pytest.main(__file__)
-
-
-if __name__ == '__main__':
-    sys.exit(main())

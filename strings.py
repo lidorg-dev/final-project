@@ -9,39 +9,30 @@ Create a function that returns a list of 4 character strings:
 Example: ['mont', 'y py', 'thon', 's fl', 'ying', ' cir', 'cus']
 ### git comment
 """
-import pytest
 
-def no_duplicates(a_string):
-    pass
+def no_duplicates():
+    str = 'monty pythons flying circus'
+    remove = ''.join(sorted(set(str), key=str.index))
+    sort = ''.join(sorted(remove))
+    print(sort)
+no_duplicates()
+pass
 
+def reversed_words(sentence):
+    # first split the string into words
+    words = sentence.split(' ')
+    # then reverse the split string list and join using space
+    reverse_sentence = ' '.join(reversed(words))
+    # finally return the joined string
+    return reverse_sentence
+if __name__ == "__main__":
+    input = 'monty pythons flying circus'
+    print(reversed_words(input))
+pass
 
-def reversed_words(a_string):
-    pass
-
-
-def four_char_strings(a_string):
-    pass
-
-
-def test_no_duplicates():
-    s = 'monty pythons flying circus'
-    assert no_duplicates(s) == ' cfghilmnoprstuy'
-
-
-def test_reversed_words():
-    s = 'monty pythons flying circus'
-    assert reversed_words(s) == ['circus', 'flying', 'pythons', 'monty']
-
-
-def test_four_char_strings():
-    s = 'monty pythons flying circus'
-    assert four_char_strings(s) == ['mont', 'y py', 'thon', 's fl', 'ying', ' cir', 'cus']
-
-
-def main():
-    return pytest.main(__file__)
-
-
-if __name__ == '__main__':
-    main()
-    
+def four_char_strings():
+    str1 = ['monty', 'pythons', 'flying', 'circus']
+    for i in str1:
+        print(i[:4])
+four_char_strings()
+pass
