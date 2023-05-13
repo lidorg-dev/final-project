@@ -70,31 +70,28 @@ STATES_CAPITALS = {
 
 
 def capital_of_Idaho():
-    # Your code here
-    pass
+    return STATES_CAPITALS['Idaho']
 
 def all_states():
-    # Your code here
-    pass
+    return list(STATES_CAPITALS.keys())
 
 def all_capitals():
-    # Your code here
-    pass
+    return list(STATES_CAPITALS.values())
 
 def states_capitals_string():
-    # Your code here
-    pass
-
-
+    return ', '.join(f'{state} -> {capital}' for state, capital in sorted(STATES_CAPITALS.items()))
 
 def get_state(capital):
-    pass
-
+    states = [state for state, cap in STATES_CAPITALS.items() if cap == capital]
+    if not states:
+        raise KeyError("No state found for the given capital.")
+    if len(states) > 1:
+        raise ValueError("Multiple states have the same capital.")
+    return states[0]
 
 
 def test_state_to_capital():
     assert 'Cheyenne' == STATES_CAPITALS['Wyoming']
-
 
 def test_state_to_capital_unknown():
     with pytest.raises(KeyError):
@@ -104,14 +101,15 @@ def test_state_to_capital_unknown():
 def test_capital_to_state():
     assert 'Wyoming' == get_state('Cheyenne')
 
-
 def test_capital_to_state_unknown():
     with pytest.raises(KeyError):
         get_state('')
 
-
+#def main():
+#    return pytest.main(__file__)
+    
 def main():
-    return pytest.main(__file__)
+    return pytest.main([__file__])
 
 
 if __name__ == '__main__':
