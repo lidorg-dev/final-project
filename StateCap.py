@@ -68,60 +68,62 @@ STATES_CAPITALS = {
     'Wyoming' : 'Cheyenne',
 }
 
+
 def capital_of_Idaho():
     capital = 'Boise'
     for i in STATES_CAPITALS:
         if STATES_CAPITALS[i] == capital:
-            print(STATES_CAPITALS[i])
+            print('Q1:', STATES_CAPITALS[i])
     pass
 
 def all_states():
     state = list(STATES_CAPITALS.keys())
-    print('states =', state)
+    print('Q2:', state)
     pass
 
 def all_capitals():
     capitals = list(STATES_CAPITALS.values())
-    print('capitals =' ,capitals)
+    print('Q3:', capitals)
     pass
 
 
 def states_capitals_string():
-    # Your code here
+    list = []
+    for state, capital in STATES_CAPITALS.items():
+        list.append(state)
+        list.append('->')
+        list.append(capital)
+        list.append(',')
+    string = ' '.join(list)
+    print('Q4:', string)
     pass
 
-#
-#
-# def get_state(capital):
-#     pass
-#
-#
-#
-# def test_state_to_capital():
-#     assert 'Cheyenne' == STATES_CAPITALS['Wyoming']
-#
-#
-# def test_state_to_capital_unknown():
-#     with pytest.raises(KeyError):
-#         STATES_CAPITALS['']
-#
-#
-# def test_capital_to_state():
-#     assert 'Wyoming' == get_state('Cheyenne')
-#
-#
-# def test_capital_to_state_unknown():
-#     with pytest.raises(KeyError):
-#         get_state('')
-#
-#
-# def main():
-#     return pytest.main(__file__)
 
 
-# if __name__ == '__main__':
-#     sys.exit(main())
+def get_state(capital):
+    capital_input = capital
+    state_input = ''
+    flag = 0
+    for state, capital in STATES_CAPITALS.items():
+        if capital == capital_input:
+            state_input += state + ' '
+            flag = 1
+    if flag == 0:
+        state_input = 'State not exist'
+    return state_input
 
-capital_of_Idaho()
-all_states()
-all_capitals()
+
+
+
+def main():
+    capital = input("Write a capital and we will tell you the state:")
+    print("the state is: ", get_state(capital))
+
+    capital_of_Idaho()
+    all_states()
+    all_capitals()
+    states_capitals_string()
+
+
+if __name__ == '__main__':
+    sys.exit(main())
