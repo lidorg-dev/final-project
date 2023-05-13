@@ -1,3 +1,5 @@
+import pytest
+
 def no_duplicates(a_string):
     return ''.join(sorted(set(a_string)))
 
@@ -26,7 +28,7 @@ def test_four_char_strings():
 
 
 def main():
-    return pytest.main(__file__)
+    return pytest.main([__file__])
 
 
 if __name__ == '__main__':

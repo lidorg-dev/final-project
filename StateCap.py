@@ -105,8 +105,12 @@ def test_capital_to_state_unknown():
     with pytest.raises(KeyError):
         get_state('')
 
+#def main():
+#    return pytest.main(__file__)
+    
 def main():
-    return pytest.main(__file__)
+    return pytest.main([__file__])
+
 
 if __name__ == '__main__':
     sys.exit(main())
