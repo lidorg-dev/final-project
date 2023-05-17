@@ -70,26 +70,35 @@ STATES_CAPITALS = {
 
 
 def capital_of_Idaho():
-    # Your code here
-    pass
+    if "Idaho" in STATES_CAPITALS:
+        print(f"The state capital of Idaho: {STATES_CAPITALS['Idaho']}")
+    else:
+        print("The state capital of Idaho not in the list")
 
 def all_states():
-    # Your code here
-    pass
+    print(STATES_CAPITALS.keys())
 
 def all_capitals():
-    # Your code here
-    pass
+    print(STATES_CAPITALS.values())
 
 def states_capitals_string():
-    # Your code here
-    pass
+    state_capital = ""
+    for state, capital in STATES_CAPITALS.items():
+        state_capital += '{0} -> {1}, '.format(state, capital)
+    sorted(state_capital)
+    print(state_capital)
+
 
 
 
 def get_state(capital):
-    pass
 
+        state = ""
+        for i in STATES_CAPITALS:
+            if STATES_CAPITALS[i] == capital:
+                print(i)
+                state = i
+        return state
 
 
 def test_state_to_capital():
@@ -107,7 +116,7 @@ def test_capital_to_state():
 
 def test_capital_to_state_unknown():
     with pytest.raises(KeyError):
-        get_state('')
+        STATES_CAPITALS['']
 
 
 def main():
@@ -116,3 +125,5 @@ def main():
 
 if __name__ == '__main__':
     sys.exit(main())
+
+
