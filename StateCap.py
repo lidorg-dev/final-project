@@ -109,21 +109,30 @@ def get_state(capital):
             state_input += state + ' '
             flag = 1
     if flag == 0:
-        state_input = 'State not exist'
+        raise KeyError("value exist")
     return state_input
 
+def test_state_to_capital():
+    assert 'Cheyenne' == STATES_CAPITALS['Wyoming']
+
+
+def test_state_to_capital_unknown():
+    with pytest.raises(KeyError):
+        STATES_CAPITALS['']
+
+
+def test_capital_to_state():
+    assert 'Wyoming' == get_state('Cheyenne').strip()
+
+
+def test_capital_to_state_unknown():
+    with pytest.raises(KeyError):
+        get_state('')
 
 
 
 def main():
-    capital = input("Write a capital and we will tell you the state:")
-    print("the state is: ", get_state(capital))
-
-    capital_of_Idaho()
-    all_states()
-    all_capitals()
-    states_capitals_string()
-
+    return pytest.main(["StateCap.py"])
 
 if __name__ == '__main__':
     sys.exit(main())
